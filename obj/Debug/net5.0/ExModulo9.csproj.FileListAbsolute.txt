@@ -1,0 +1,16 @@
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\bin\Debug\net5.0\ExModulo9.exe
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\bin\Debug\net5.0\ExModulo9.deps.json
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\bin\Debug\net5.0\ExModulo9.runtimeconfig.json
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\bin\Debug\net5.0\ExModulo9.runtimeconfig.dev.json
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\bin\Debug\net5.0\ExModulo9.dll
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\bin\Debug\net5.0\ref\ExModulo9.dll
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\bin\Debug\net5.0\ExModulo9.pdb
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\obj\Debug\net5.0\ExModulo9.csprojAssemblyReference.cache
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\obj\Debug\net5.0\ExModulo9.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\obj\Debug\net5.0\ExModulo9.AssemblyInfoInputs.cache
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\obj\Debug\net5.0\ExModulo9.AssemblyInfo.cs
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\obj\Debug\net5.0\ExModulo9.csproj.CoreCompileInputs.cache
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\obj\Debug\net5.0\ExModulo9.dll
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\obj\Debug\net5.0\ref\ExModulo9.dll
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\obj\Debug\net5.0\ExModulo9.pdb
+C:\Users\jeanm\OneDrive\Documentos\Materias de Curso em C#\Exercicios\ExModulo9\obj\Debug\net5.0\ExModulo9.genruntimeconfig.cache
