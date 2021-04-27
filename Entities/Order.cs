@@ -8,7 +8,7 @@ namespace ExModulo9.Entities
     {
         public Order(DateTime moment, OrderStatus status, Client client)
         {
-            Moment = moment;
+            Moment = DateTime.Now;
             Status = status;
             Client = client;
         }
@@ -36,6 +36,14 @@ namespace ExModulo9.Entities
                 sum += item.SubTotal();
             }
             return sum;
+        }
+
+        public override string ToString()
+        {
+            return "Order moment: "
+            + Moment 
+            + "\nOrder status: "
+            + Status;
         }
     }
 }

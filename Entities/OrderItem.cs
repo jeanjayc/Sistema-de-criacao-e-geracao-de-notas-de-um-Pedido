@@ -1,3 +1,4 @@
+using System;
 namespace ExModulo9.Entities
 {
     public class OrderItem
@@ -16,6 +17,17 @@ namespace ExModulo9.Entities
         public double SubTotal()
         {
             return Quantity * Price;
+        }
+
+        public override string ToString()
+        {
+            return Product.Description
+            +",$"
+            + Price
+            +"Quantity: "
+            + Quantity
+            +"Subtotal: "
+            + SubTotal();
         }
     }
 }
