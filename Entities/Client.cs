@@ -20,7 +20,7 @@ namespace ExModulo9.Entities
             + Name
             +"("
             + BirthDate
-            +") -"
+            +") - "
             + Email;
         }
     }

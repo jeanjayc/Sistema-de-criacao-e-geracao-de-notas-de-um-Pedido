@@ -24,9 +24,9 @@ namespace ExModulo9.Entities
             return Product.Description
             +",$"
             + Price
-            +"Quantity: "
+            +", Quantity: "
             + Quantity
-            +"Subtotal: "
+            +", Subtotal: "
             + SubTotal();
         }
     }

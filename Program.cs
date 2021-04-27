@@ -2,6 +2,7 @@
 using ExModulo9.Entities;
 using System.Globalization;
 using ExModulo9.Entities.Enums;
+using System.Linq;
 
 namespace ExModulo9
 {
@@ -49,6 +50,8 @@ namespace ExModulo9
             foreach(var item in order.Items)
             {
                 Console.WriteLine(item.ToString());
+                var total = order.Items.Sum(p => p.SubTotal());
+                Console.WriteLine("Total: $" + total);
             }
         }
     }
