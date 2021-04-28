@@ -19,12 +19,12 @@ namespace ExModulo9
             Console.Write("Birth date (DD/MM/YYYY): ");
             DateTime birthDate = DateTime.Parse(Console.ReadLine());
 
-            Client client = new Client(name, email, birthDate);
+            Client client = new Client(1,name, email, birthDate);
 
             Console.WriteLine("Enter order data: ");
             Console.Write("Status: ");
             OrderStatus status = Enum.Parse<OrderStatus>(Console.ReadLine());
-            Order order = new Order(DateTime.Now, status,client);
+            Order order = new Order(3,DateTime.Now, status,client);
 
             Console.Write("How many items to this order? ");
             int n = int.Parse(Console.ReadLine());

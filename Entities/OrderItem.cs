@@ -3,6 +3,7 @@ namespace ExModulo9.Entities
 {
     public class OrderItem
     {
+        public OrderItem(){}
         public OrderItem(int quantity, double price, Product product)
         {
             Quantity = quantity;
