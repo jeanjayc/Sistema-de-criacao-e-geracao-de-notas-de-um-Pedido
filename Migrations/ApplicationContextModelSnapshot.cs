@@ -21,10 +21,9 @@ namespace ExModulo9.Migrations
 
             modelBuilder.Entity("ExModulo9.Entities.Client", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("BirthDate")
                         .ValueGeneratedOnAdd()
@@ -51,8 +50,8 @@ namespace ExModulo9.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ClientId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ClientId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Moment")
                         .HasColumnType("datetime2");
@@ -70,6 +69,14 @@ namespace ExModulo9.Migrations
 
             modelBuilder.Entity("ExModulo9.Entities.OrderItem", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("OrdersId")
+                        .HasColumnType("int");
+
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
@@ -79,9 +86,13 @@ namespace ExModulo9.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrdersId");
+
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Items");
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("ExModulo9.Entities.Product", b =>
@@ -111,6 +122,11 @@ namespace ExModulo9.Migrations
 
             modelBuilder.Entity("ExModulo9.Entities.OrderItem", b =>
                 {
+                    b.HasOne("ExModulo9.Entities.Order", "Orders")
+                        .WithMany("Items")
+                        .HasForeignKey("OrdersId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("ExModulo9.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");

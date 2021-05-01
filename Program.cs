@@ -12,6 +12,8 @@ namespace ExModulo9
         {
             Console.Clear();
             Console.WriteLine("Enter cliente data:");
+            Console.Write("Id: ");
+            Guid id = new Guid();
             Console.Write("Name: ");
             string name = Console.ReadLine();
             Console.Write("Email: ");
@@ -19,12 +21,12 @@ namespace ExModulo9
             Console.Write("Birth date (DD/MM/YYYY): ");
             DateTime birthDate = DateTime.Parse(Console.ReadLine());
 
-            Client client = new Client(1,name, email, birthDate);
+            Client client = new Client(new Guid(), name, email, birthDate);
 
             Console.WriteLine("Enter order data: ");
             Console.Write("Status: ");
             OrderStatus status = Enum.Parse<OrderStatus>(Console.ReadLine());
-            Order order = new Order(3,DateTime.Now, status,client);
+            Order order = new Order(3, DateTime.Now, status, client);
 
             Console.Write("How many items to this order? ");
             int n = int.Parse(Console.ReadLine());
@@ -37,9 +39,14 @@ namespace ExModulo9
                 double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                 Console.Write("Quantity: ");
                 int quantity = int.Parse(Console.ReadLine());
-                Product product = new Product(ProdName,price);
+                Product product = new Product(ProdName, price);
                 order.AddItem(new OrderItem(quantity, price, product));
             }
+            using var db = new Data.ApplicationContext();
+            db.Add(order);
+            db.Add(client);
+            db.SaveChanges();
+            
 
             Console.WriteLine();
 
@@ -47,7 +54,7 @@ namespace ExModulo9
             Console.WriteLine(order.ToString());
             Console.WriteLine(client.ToString());
             Console.WriteLine("Order items: ");
-            foreach(var item in order.Items)
+            foreach (var item in order.Items)
             {
                 Console.WriteLine(item.ToString());
                 var total = order.Items.Sum(p => p.SubTotal());

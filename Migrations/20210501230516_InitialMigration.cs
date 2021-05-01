@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ExModulo9.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,8 +11,7 @@ namespace ExModulo9.Migrations
                 name: "Clientes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(type: "VARCHAR(40)", nullable: false),
                     Email = table.Column<string>(type: "VARCHAR(40)", nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false, defaultValueSql: "GETDATE()")
@@ -44,7 +43,7 @@ namespace ExModulo9.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Moment = table.Column<DateTime>(nullable: false),
                     Status = table.Column<string>(nullable: false),
-                    ClientId = table.Column<int>(nullable: true)
+                    ClientId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -58,17 +57,27 @@ namespace ExModulo9.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Items",
+                name: "OrderItem",
                 columns: table => new
                 {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Quantity = table.Column<int>(nullable: false),
                     Price = table.Column<double>(nullable: false),
-                    ProductId = table.Column<int>(nullable: true)
+                    ProductId = table.Column<int>(nullable: true),
+                    OrdersId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_OrderItem", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Items_Product_ProductId",
+                        name: "FK_OrderItem_Orders_OrdersId",
+                        column: x => x.OrdersId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OrderItem_Product_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Product",
                         principalColumn: "Id",
@@ -76,8 +85,13 @@ namespace ExModulo9.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Items_ProductId",
-                table: "Items",
+                name: "IX_OrderItem_OrdersId",
+                table: "OrderItem",
+                column: "OrdersId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderItem_ProductId",
+                table: "OrderItem",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
@@ -89,7 +103,7 @@ namespace ExModulo9.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Items");
+                name: "OrderItem");
 
             migrationBuilder.DropTable(
                 name: "Orders");

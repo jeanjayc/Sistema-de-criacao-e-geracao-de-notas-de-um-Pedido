@@ -7,10 +7,8 @@ namespace ExModulo9.Data
     public class ApplicationContext : DbContext
     {
         public DbSet<Order> Orders { get; set; }
-        // public ApplicationContext(DbContextOptions<ApplicationContext> options)
-        // :base(options)
-        // {
-        // }
+        public DbSet<Client> Clients { get; set;}
+      
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Initial Catalog=Orders; Integrated Security=true");
@@ -19,7 +17,7 @@ namespace ExModulo9.Data
         {
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new ClientConfiguration());
-            modelBuilder.ApplyConfiguration(new OrderItemConfiguration());
+            // modelBuilder.ApplyConfiguration(new OrderItemConfiguration());
         }
     }
 }

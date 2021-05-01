@@ -7,7 +7,11 @@ namespace ExModulo9.Data.Configurations
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Order> builder)
         {
             builder.ToTable("Orders"); 
-            builder.Property(p => p.Status).HasConversion<string>();          
+            builder.Property(p => p.Status).HasConversion<string>(); 
+
+             builder.HasMany(p => p.Items)
+                    .WithOne(p => p.Orders)
+                    .OnDelete(DeleteBehavior.Cascade);                    
         }
     }
 }

@@ -20,7 +20,6 @@ namespace ExModulo9.Entities
         public DateTime Moment { get; set; }
         public OrderStatus Status { get; set; }
         public Client Client { get; set; }
-        [NotMapped]
         public List<OrderItem> Items { get; set; } = new List<OrderItem>();
 
         public void AddItem(OrderItem item)
@@ -49,5 +48,6 @@ namespace ExModulo9.Entities
             + "\nOrder status: "
             + Status;
         }
+        
     }
 }
